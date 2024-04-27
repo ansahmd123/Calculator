@@ -2,6 +2,7 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println("My Calculator");
         Calculator calculator = new Calculator();
         System.out.println("Addition: " + calculator.add(5, 3));
         System.out.println("Subtraction: " + calculator.subtract(5, 3));
