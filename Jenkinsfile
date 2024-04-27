@@ -21,6 +21,7 @@ pipeline {
 
     post {
         always {
+            archiveArtifacts artifacts: '**/*.jar'
             junit 'build/test-results/**/*.xml'
         }
     }
