@@ -9,12 +9,12 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh './gradlew build'
+                powershell './gradlew build'
             }
         }
         stage('Test') {
             steps {
-                sh './gradlew test'
+                powershell './gradlew test'
             }
         }
     }
