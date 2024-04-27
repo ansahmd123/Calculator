@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                powershell './gradlew build'
+                powershell './gradlew build --scan'
             }
         }
         stage('Test') {
