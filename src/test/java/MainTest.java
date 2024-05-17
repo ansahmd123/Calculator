@@ -7,7 +7,12 @@ public class MainTest {
 
     @Test
     public void testAdd() {
-        assertEquals(8, calculator.add(5, 3));
+        assertEquals(4, calculator.add(2, 2));
+    }
+
+    @Test
+    public void testAddition(){
+        assertEquals(12,calculator.add(8,4));
     }
 
     @Test
