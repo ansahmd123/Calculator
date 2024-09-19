@@ -12,20 +12,16 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Build') {
+        stage('Build&Test') {
             steps {
                 bat './gradlew clean build'
             }
         }
-        stage('Test') {
-            steps {
-                bat './gradlew test'
-            }
-        }
+
         stage('Post-Build Actions'){
             steps {
                 archiveArtifacts artifacts: '**/build/libs/*.jar'
-                junit 'build/test-results/**/*.xml'
+//                 junit 'build/test-results/**/*.xml'
             }
         }
     }
