@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    options {
+            skipDefaultCheckout(true)
+            timestamps()
+    }
+
     stages {
         stage('Checkout') {
             steps {
