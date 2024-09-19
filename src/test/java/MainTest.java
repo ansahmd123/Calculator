@@ -34,4 +34,12 @@ public class MainTest {
     public void testDivideByZero() {
         calculator.divide(6, 0);
     }
+
+    @Test
+    public void testRandomBehaviour(){
+        //choose a random number between 1,2,3
+        int random = (int)(Math.random()*3+1);
+        System.out.println("Random number: "+random);
+        assertEquals(3,random);
+    }
 }
