@@ -91,20 +91,20 @@ public class MainTest {
         }
     }
 
-//    @Test
-//    public void testRandomBehaviour(){
-//        currentTestName = "testRandomBehaviour";
-//        try {
-//            Thread.sleep(5000);
-//            int random = (int)(Math.random()*3+1);
-//            assertEquals(3,random);
-//        }
-//        catch (AssertionError e) {
-//            testFailed = true;
-//            throw e;
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
-//
-//    }g
+    @Test
+    public void testRandomBehaviour(){
+        currentTestName = "testRandomBehaviour";
+        try {
+            Thread.sleep(5000);
+            int random = (int)(Math.random()*3+1);
+            assertEquals(3,random);
+        }
+        catch (AssertionError e) {
+            testFailed = true;
+            throw e;
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }
