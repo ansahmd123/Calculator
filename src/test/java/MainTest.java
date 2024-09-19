@@ -2,9 +2,12 @@ import org.example.Main;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.logging.Logger;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 public class MainTest {
+    private static final Logger logger = Logger.getLogger(MainTest.class.getName());
     Main.Calculator calculator = new Main.Calculator();
 
     private String currentTestName;
@@ -13,9 +16,9 @@ public class MainTest {
     @AfterEach
     public void logAfterTest() {
         if (testFailed) {
-            System.out.println("Executing Test " + currentTestName + " with result: FAILURE");
+            logger.severe("Executing Test " + currentTestName + " with result: FAILURE");
         } else {
-            System.out.println("Executing Test " + currentTestName + " with result: SUCCESS");
+            logger.info("Executing Test " + currentTestName + " with result: SUCCESS");
         }
     }
     @Test
