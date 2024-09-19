@@ -21,7 +21,7 @@ pipeline {
         stage('Post-Build Actions'){
             steps {
                 archiveArtifacts artifacts: '**/build/libs/*.jar'
-//                 junit 'build/test-results/**/*.xml'
+                junit 'build/test-results/**/*.xml'
             }
         }
     }
