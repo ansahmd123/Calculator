@@ -7,7 +7,7 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
+        stage('Prepare Environment') {
             steps {
                 checkout scm
             }
