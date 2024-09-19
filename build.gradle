@@ -16,5 +16,3 @@ dependencies {
 test {
     useJUnitPlatform()
 }
-
-// Gradle Enterprise test retry configuration
