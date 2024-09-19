@@ -1,45 +1,107 @@
 import org.example.Main;
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 public class MainTest {
     Main.Calculator calculator = new Main.Calculator();
 
+    private String currentTestName;
+    private boolean testFailed;
+
+    @AfterEach
+    public void logAfterTest() {
+        if (testFailed) {
+            System.out.println("Executing Test " + currentTestName + " with result: FAILURE");
+        } else {
+            System.out.println("Executing Test " + currentTestName + " with result: SUCCESS");
+        }
+    }
     @Test
     public void testAdd() {
-        assertEquals(4, calculator.add(2, 2));
-    }
-
-    @Test
-    public void testAddition(){
-        assertEquals(12,calculator.add(8,4));
+        currentTestName = "testAdd";
+        try {
+            Thread.sleep(5000);
+            assertEquals(4, calculator.add(2, 2));
+        } catch (AssertionError e) {
+            testFailed = true;
+            throw e; // rethrow to ensure test fails properly
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Test
     public void testSubtract() {
-        assertEquals(2, calculator.subtract(5, 3));
+        currentTestName = "testSubtract";
+        try {
+            Thread.sleep(5000);
+            assertEquals(2, calculator.subtract(5, 3));
+        } catch (AssertionError e) {
+            testFailed = true;
+            throw e;
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Test
     public void testMultiply() {
-        assertEquals(15, calculator.multiply(5, 3));
+        currentTestName = "testMultiply";
+        try {
+            Thread.sleep(5000);
+            assertEquals(15, calculator.multiply(5, 3));
+        } catch (AssertionError e) {
+            testFailed = true;
+            throw e;
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Test
     public void testDivide() {
-        assertEquals(2, calculator.divide(6, 3));
+        currentTestName = "testDivide";
+        try {
+            Thread.sleep(5000);
+            assertEquals(2, calculator.divide(6, 3));
+        } catch (AssertionError e) {
+            testFailed = true;
+            throw e;
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testDivideByZero() {
-        calculator.divide(6, 0);
+        currentTestName = "testDivideByZero";
+        try {
+            Thread.sleep(5000);
+            assertThrows(IllegalArgumentException.class, () -> calculator.divide(6, 0));
+        } catch (AssertionError e) {
+            testFailed = true;
+            throw e;
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Test
     public void testRandomBehaviour(){
-        //choose a random number between 1,2,3
-        int random = (int)(Math.random()*3+1);
-        System.out.println("Random number: "+random);
-        assertEquals(3,random);
+        currentTestName = "testRandomBehaviour";
+        try {
+            Thread.sleep(5000);
+            int random = (int)(Math.random()*3+1);
+            assertEquals(3,random);
+        }
+        catch (AssertionError e) {
+            testFailed = true;
+            throw e;
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }

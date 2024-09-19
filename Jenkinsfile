@@ -4,17 +4,17 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout scm
+                bat scm
             }
         }
         stage('Build') {
             steps {
-                powershell './gradlew build'
+                bat './gradlew build'
             }
         }
         stage('Test') {
             steps {
-                powershell './gradlew test'
+                bat './gradlew test'
             }
         }
     }
