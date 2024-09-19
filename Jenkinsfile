@@ -17,12 +17,12 @@ pipeline {
                 bat './gradlew test'
             }
         }
-    }
-
-    post {
-        always {
-            archiveArtifacts artifacts: '**/*.jar'
-            junit 'build/test-results/**/*.xml'
+        stage('Post-Build Actions'){
+            steps {
+                archiveArtifacts artifacts: '**/build/libs/*.jar'
+                junit 'build/test-results/**/*.xml'
+            }
         }
     }
+
 }
