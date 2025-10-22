@@ -7,6 +7,11 @@ pipeline {
                 checkout scm
             }
         }
+        stage('Grant Permission') {
+            steps {
+                sh 'chmod +x gradlew'
+            }
+        }
         stage('Build') {
             steps {
                 sh './gradlew build'
