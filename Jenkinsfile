@@ -2,19 +2,20 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+//         stage('Checkout') {
+//             steps {
+//                 checkout scm
+//             }
+//         }
+        stage('Test') {
             steps {
-                checkout scm
+                sh 'chmod +x ./gradlew'
+                sh './gradlew test'
             }
         }
         stage('Build') {
             steps {
-                powershell './gradlew build'
-            }
-        }
-        stage('Test') {
-            steps {
-                powershell './gradlew test'
+                sh './gradlew build -x test'
             }
         }
     }
