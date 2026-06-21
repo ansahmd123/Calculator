@@ -1,3 +1,4 @@
+@Library('groovy-pipeline-library@java21') _
 pipeline {
     agent any
 
@@ -15,7 +16,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh './gradlew build -x test'
+                gradleBuild()
             }
         }
     }
