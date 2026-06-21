@@ -1,19 +1,33 @@
 @Library('groovy-pipeline-library@java21') _
+
+import com.calypso.VersionUtils
+
 pipeline {
+
     agent any
 
     stages {
-//         stage('Checkout') {
-//             steps {
-//                 checkout scm
-//             }
-//         }
+
+        stage('Version') {
+            steps {
+                script {
+                    def version = VersionUtils.generateVersion(this)
+
+                    echo "Version = ${version}"
+
+                    createGitTag(version)
+
+                }
+            }
+        }
+
         stage('Test') {
             steps {
                 sh 'chmod +x ./gradlew'
                 sh './gradlew test'
             }
         }
+
         stage('Build') {
             steps {
                 gradleBuild()
