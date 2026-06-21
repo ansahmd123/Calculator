@@ -1,6 +1,5 @@
-@Library('groovy-pipeline-library@java21') _
-
 import com.calypso.VersionUtils
+@Library('groovy-pipeline-library@java21') _
 
 pipeline {
 
